@@ -14,7 +14,7 @@ export class LoginService {
     .pipe(
       tap(
         (user) => {
-          sessionStorage.setItem("user", user.nome)
+          sessionStorage.setItem("email", user.email)
         }
       )
     )
