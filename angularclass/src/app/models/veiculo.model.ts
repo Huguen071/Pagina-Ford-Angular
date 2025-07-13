@@ -9,6 +9,15 @@ img: any
   softwareUpdates: number | string
 }
 
+export interface VeiculoData {
+  id: number;
+  odometro: number;
+  nivelCombustivel: number;
+  status: string;
+  lat: number;
+  long: number
+}
+
 export interface VeiculosAPI {
   vehicles: Veiculos;
 }

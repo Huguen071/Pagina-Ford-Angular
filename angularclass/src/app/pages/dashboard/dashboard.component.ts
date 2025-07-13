@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../service/dashboard.service';
-import { Veiculo } from '../../models/veiculo.model';
+import { Veiculo, VeiculoData } from '../../models/veiculo.model';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +14,8 @@ export class DashboardComponent implements OnInit{
 
   vehicles: Veiculo[] = [];
   selectedvehivle!: Veiculo;
-  
+  vehicleData!: VeiculoData;
+
 selectCarForms = new FormGroup({
   carId: new FormControl('')
 })

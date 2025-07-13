@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { VeiculosAPI } from '../models/veiculo.model';
+import { VeiculoData, VeiculosAPI } from '../models/veiculo.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,4 +16,7 @@ export class DashboardService {
     return this.http.get<VeiculosAPI> (`${this.baseUrl}/vehicles`)
   }
 
+  getVehicleData(vin: string) {
+    return this.http.post<VeiculoData>(`${this.baseUrl}/vehicleData`, {vin});
+  }
 }
