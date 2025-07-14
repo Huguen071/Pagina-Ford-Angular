@@ -4,10 +4,11 @@ import { Veiculo, VeiculoData } from '../../models/veiculo.model';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from "../../components/card/card.component";
+import { CarTableComponent } from "../../components/car-table/car-table.component";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [ReactiveFormsModule, CommonModule, CardComponent],
+  imports: [ReactiveFormsModule, CommonModule, CardComponent, CarTableComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -27,6 +28,7 @@ constructor (private dashboardservice: DashboardService){}
     this.dashboardservice.getVehicles().subscribe((res)=>{
       console.log(res.vehicles)
       this.vehicles = res.vehicles
+      
     })
 
     this.selectCarForms.controls.carId.valueChanges.subscribe((id)=>{
