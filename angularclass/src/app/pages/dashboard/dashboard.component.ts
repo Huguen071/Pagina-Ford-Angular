@@ -3,10 +3,11 @@ import { DashboardService } from '../../service/dashboard.service';
 import { Veiculo, VeiculoData } from '../../models/veiculo.model';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CardComponent } from "../../components/card/card.component";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, CardComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

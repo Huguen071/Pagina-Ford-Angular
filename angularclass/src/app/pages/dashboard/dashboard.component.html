@@ -1,4 +1,6 @@
-<form [formGroup]="selectCarForms">
+<section class="d-flex gap-3">
+    <div class="shadow border border-black p-3">
+        <form [formGroup]="selectCarForms">
     <select formControlName = 'carId'>
         <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
             {{vehicle.vehicle}}
@@ -6,4 +8,27 @@
     </select>
 </form>
 
-<img *ngIf="selectedvehivle" [src] = "selectedvehivle.img">
+<app-card />
+<app-card />
+<app-card />
+    </div>
+</section>
+
+<section>
+    <img *ngIf="selectedvehivle" [src] = "selectedvehivle.img">
+</section>
+
+<section>
+    <table>
+        <thead>
+            <tr>
+                <th>VIN</th>
+                <th>ODOMETRO</th>
+                <th>NÍVEL DO COMBUSTÍVEL</th>
+                <th>STATUS</th>
+                <th>LAT</th>
+                <th>LONG</th>
+            </tr>
+        </thead>
+    </table>
+</section>
