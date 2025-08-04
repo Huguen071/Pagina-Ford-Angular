@@ -15,27 +15,25 @@
           </select>
         </form>
       </div>
-      
       <div class="info-cards" *ngIf="selectedVehicle">
         <app-card title="TOTAL DE VENDAS" [value]="selectedVehicle.volumetotal"></app-card>
         <app-card title="CONECTADOS" [value]="selectedVehicle.connected"></app-card>
         <app-card title="ATUALIZAÇÕES DE SOFTWARE" [value]="selectedVehicle.softwareUpdates"></app-card>
       </div>
-      <div class="vehicle-icon" *ngIf="selectedVehicle">
-        <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle">
-      </div>
     </header>
 
-    <section class="data-section">
-      <app-car-table [vehicleData]="vehicleData"></app-car-table>
+    <section class="vehicle-image-section" *ngIf="selectedVehicle">
+        <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle" class="main-vehicle-image">
+    </section>
+
+    <section class="data-section" *ngIf="selectedVehicle">
       <form [formGroup]="searchForm" (submit)="onSearch()" class="search-form">
         <input formControlName="vin" type="text" placeholder="Digite o VIN">
         <button type="submit" class="btn btn-primary">Buscar</button>
       </form>
-    </section>
-
-    <section class="vehicle-image-section" *ngIf="selectedVehicle">
-        <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle" class="main-vehicle-image">
+      <div class="table-container">
+        <app-car-table [vehicleData]="vehicleData"></app-car-table>
+      </div>
     </section>
   </div>
 </div>
