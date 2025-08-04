@@ -1,0 +1,15 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f4f6fa;
+}
+
+/* Garante que o menu fique posicionado no canto superior */
+.home-container app-menu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}

@@ -10,7 +10,16 @@ import { Router } from '@angular/router';
 export class MenuComponent {
   router = inject(Router)
 
+  goToHome() {
+    this.router.navigate(["/home"]);
+  }
+
   goToDashboard() {
-    this.router.navigate(["/dashboard"])
+    this.router.navigate(["/dashboard"]);
+  }
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate([""]);
   }
 }

@@ -1,0 +1,51 @@
+.welcome-card {
+  position: relative;
+  margin-top: 100px; /* Espaço para o menu */
+  width: 90%;
+  max-width: 900px;
+  border: 3px solid #003478;
+  border-radius: 15px;
+  overflow: hidden; /* Garante que a imagem não ultrapasse as bordas arredondadas */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-card img {
+  width: 100%;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-content {
+  background-color: rgba(0, 52, 120, 0.85); /* Azul Ford com 85% de opacidade */
+  color: white;
+  padding: 30px 50px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.text-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.text-content hr {
+  border-top: 2px solid white;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.text-content p {
+  font-size: 1.2rem;
+  margin: 0;
+}

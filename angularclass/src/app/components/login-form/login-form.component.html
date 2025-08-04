@@ -1,13 +1,14 @@
-<form [formGroup]="loginForm" (submit)="onSubmitLogin()" class="shadow border border-dark p-4">
+<form [formGroup]="loginForm" (submit)="onSubmitLogin()" class="login-form shadow">
+  <img src="http://localhost:3001/img/ford.png" alt="Ford Logo" class="form-logo">
+  <h2 class="form-title">Boas-Vindas</h2>
+
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Usuário</label>
-    <input formControlName="nome" type="text" class="form-control" id="exampleInputEmail1" required>
+    <input formControlName="nome" type="text" class="form-control" id="userInput" placeholder="Login" required>
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Senha</label>
-    <input formControlName="senha" type="password" class="form-control" id="exampleInputPassword1" required>
+    <input formControlName="senha" type="password" class="form-control" id="passwordInput" placeholder="Senha" required>
   </div>
 
-  <button type="submit" class="btn btn-primary">Entrar</button>
+  <button type="submit" class="btn btn-primary w-100">ENTRAR</button>
 </form>

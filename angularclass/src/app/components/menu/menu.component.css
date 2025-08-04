@@ -1,0 +1,91 @@
+
+/* Estilo do Botão Hamburger */
+.btn-icon {
+  border: none;
+  background: transparent;
+  padding: 10px;
+}
+
+.hamburger-icon,
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  display: block;
+  background-color: #003478; /* Azul Ford */
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-icon::before {
+  transform: translateY(-8px);
+}
+
+.hamburger-icon::after {
+  transform: translateY(5px);
+}
+
+/* Estilo do Painel Off-canvas */
+.offcanvas {
+  width: 300px;
+  border-right: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.offcanvas-header {
+  padding: 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.offcanvas-logo {
+  height: 25px;
+}
+
+.offcanvas-body {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo dos Links de Navegação */
+.nav-links {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.nav-links li a {
+  display: block;
+  padding: 15px 0;
+  cursor: pointer;
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links li a:hover {
+  color: #003478;
+  font-weight: bold;
+}
+
+/* Estilo do Rodapé e Botão Sair */
+.offcanvas-footer {
+  padding: 20px;
+  border-top: 1px solid #dee2e6;
+}
+
+.btn-sair {
+  background-color: #4f46e5;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-sair:hover {
+  background-color: #4338ca;
+}
