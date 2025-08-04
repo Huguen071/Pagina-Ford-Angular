@@ -1,0 +1,27 @@
+.info-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  flex-grow: 1;
+}
+
+.info-card h2 {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.info-card .value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #003478;
+  margin-bottom: 0;
+}
+
+.info-card .unit {
+  color: #6c757d;
+  margin: 0;
+}

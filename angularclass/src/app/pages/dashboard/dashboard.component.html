@@ -1,23 +1,40 @@
-<section class="d-flex gap-3">
-    <div class="shadow border border-black p-3">
-        <form [formGroup]="selectCarForms">
-    <select formControlName = 'carId'>
-        <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
-            {{vehicle.vehicle}}
-        </option>
-    </select>
-</form>
+<div class="dashboard-page">
+  <app-menu />
 
-<app-card />
-<app-card />
-<app-card />
-    </div>
-</section>
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <div class="title-section">
+        <h1>Dashboard</h1>
+        <form [formGroup]="selectCarForm" class="vehicle-select">
+          <label for="vehicle">Veículo</label>
+          <select formControlName="carId" id="vehicle">
+            <option value="" disabled>Selecione</option>
+            <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
+              {{ vehicle.vehicle }}
+            </option>
+          </select>
+        </form>
+      </div>
+      <div class="info-cards" *ngIf="selectedVehicle">
+        <app-card title="TOTAL DE VENDAS" [value]="selectedVehicle.volumetotal"></app-card>
+        <app-card title="CONECTADOS" [value]="selectedVehicle.connected"></app-card>
+        <app-card title="ATUALIZAÇÕES DE SOFTWARE" [value]="selectedVehicle.softwareUpdates"></app-card>
+      </div>
+      <div class="vehicle-icon" *ngIf="selectedVehicle">
+        <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle">
+      </div>
+    </header>
 
-<section>
-    <img *ngIf="selectedvehivle" [src] = "selectedvehivle.img">
-</section>
+    <section class="data-section">
+      <app-car-table [vehicleData]="vehicleData"></app-car-table>
+      <form [formGroup]="searchForm" (submit)="onSearch()" class="search-form">
+        <input formControlName="vin" type="text" placeholder="Digite o VIN">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </form>
+    </section>
 
-<section>
-   <app-car-table />
-</section>
+    <section class="vehicle-image-section" *ngIf="selectedVehicle">
+        <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle" class="main-vehicle-image">
+    </section>
+  </div>
+</div>

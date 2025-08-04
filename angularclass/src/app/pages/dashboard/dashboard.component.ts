@@ -5,39 +5,57 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from "../../components/card/card.component";
 import { CarTableComponent } from "../../components/car-table/car-table.component";
+import { MenuComponent } from '../../components/menu/menu.component'; // Importe o MenuComponent
 
 @Component({
   selector: 'app-dashboard',
-  imports: [ReactiveFormsModule, CommonModule, CardComponent, CarTableComponent],
+  // Adicione MenuComponent aos imports
+  imports: [ReactiveFormsModule, CommonModule, CardComponent, CarTableComponent, MenuComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit {
 
   vehicles: Veiculo[] = [];
-  selectedvehivle!: Veiculo;
-  vehicleData!: VeiculoData;
+  selectedVehicle!: Veiculo;
+  vehicleData: VeiculoData | null = null; // Pode ser nulo inicialmente
 
-selectCarForms = new FormGroup({
-  carId: new FormControl('')
-})
+  selectCarForm = new FormGroup({
+    carId: new FormControl('')
+  });
 
-constructor (private dashboardservice: DashboardService){}
+  searchForm = new FormGroup({
+    vin: new FormControl('')
+  });
+
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit(): void {
-    this.dashboardservice.getVehicles().subscribe((res)=>{
-      console.log(res.vehicles)
-      this.vehicles = res.vehicles
-      
-    })
+    this.dashboardService.getVehicles().subscribe((res) => {
+      this.vehicles = res.vehicles;
+    });
 
-    this.selectCarForms.controls.carId.valueChanges.subscribe((id)=>{
-      this.selectedvehivle = this.vehicles[Number(id) - 1]
-      console.log (this.selectedvehivle)
-    })
-
+    this.selectCarForm.controls.carId.valueChanges.subscribe((id) => {
+      if (id) {
+        this.selectedVehicle = this.vehicles.find(v => v.id == id)!;
+        this.vehicleData = null; // Limpa a tabela ao selecionar um novo carro
+        this.searchForm.reset(); // Limpa o campo de busca
+      }
+    });
   }
 
-
-
+  onSearch() {
+    const vin = this.searchForm.value.vin;
+    if (vin) {
+      this.dashboardService.getVehicleData(vin).subscribe({
+        next: (data) => {
+          this.vehicleData = data;
+        },
+        error: () => {
+          this.vehicleData = null;
+          alert('Nenhum veículo encontrado com este código VIN.');
+        }
+      });
+    }
+  }
 }
