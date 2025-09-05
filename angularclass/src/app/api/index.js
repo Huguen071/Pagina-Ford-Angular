@@ -166,6 +166,4 @@ app.post("/vehicleData", (req, res) => {
     }
 })
 
-app.listen(3001, () => {
-    console.log("API running on http://localhost:3001/");
-});
+module.exports = app;
